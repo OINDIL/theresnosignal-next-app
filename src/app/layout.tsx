@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${myFont.className} antialiased`}>{children}</body>
+      <body className={`${myFont.className} antialiased dark`}>{children}</body>
     </html>
   );
 }
