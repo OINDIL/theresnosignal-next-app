@@ -7,10 +7,8 @@ import Link from "next/link";
 
 
 export default async function page() {
-
   const navLinks = await fetchNavLinks();
 
-  console.log(navLinks)
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center">
@@ -21,7 +19,7 @@ export default async function page() {
         </Link>
 
         <div>
-          <Image src="/theresnosignal_logo.gif" alt="theresnosignal-logo" width={50} height={50} className="size-50" />
+          <Image src="/theresnosignal_logo.gif" alt="theresnosignal-logo" width={50} height={50} className="size-50" unoptimized />
         </div>
 
         <Link href={"/events"} className="flex items-center justify-center flex-col group *:group-hover:text-white/80">
