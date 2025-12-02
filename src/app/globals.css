@@ -70,7 +70,7 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.9911 0 0);
+  --background: #b7f346;
   --foreground: oklch(0.2046 0 0);
   --card: oklch(0.9911 0 0);
   --card-foreground: oklch(0.2046 0 0);
@@ -124,8 +124,20 @@
   --tracking-normal: 0.025em;
 }
 
+
+@layer utilities {
+  .landing-page-bright {
+    @apply min-h-screen flex flex-col justify-center items-center border-15;
+    border-color: black;
+  }
+
+  .dark .landing-page-bright {
+    border-color: #b7f346;
+  }
+}
+
 .dark {
-  --background: oklch(0.2404 0.0015 17.2629);
+  --background: #000;
   --foreground: oklch(0.9288 0.0126 255.5078);
   --card: oklch(0.2046 0 0);
   --card-foreground: oklch(0.9288 0.0126 255.5078);
@@ -140,7 +152,7 @@
   --accent: oklch(0.3132 0 0);
   --accent-foreground: oklch(0.9851 0 0);
   --destructive: oklch(0.3123 0.0852 29.7877);
-  --border: oklch(0.2809 0 0);
+  --border: #B7F346;
   --input: oklch(0.2603 0 0);
   --ring: oklch(0.8003 0.1821 151.7110);
   --chart-1: oklch(0.8003 0.1821 151.7110);
@@ -183,6 +195,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
