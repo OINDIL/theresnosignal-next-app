@@ -19,7 +19,7 @@ export default async function page() {
         </Link>
 
         <div>
-          <Image src="/theresnosignal_logo.gif" alt="theresnosignal-logo" width={50} height={50} className="size-50" unoptimized />
+          <Image src="/logo.gif" alt="theresnosignal-logo" width={50} height={50} className="size-64" unoptimized />
         </div>
 
         <Link href={"/events"} className="flex items-center justify-center flex-col group *:group-hover:text-white/80">
