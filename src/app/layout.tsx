@@ -9,8 +9,8 @@ const myFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Theresnosignal",
-  description: "Theresnosignal - Experimental Music & Sound Art Website",
+  title: "VWB",
+  description: "VWB - Experimental Music & Sound Art Website",
 };
 
 export default function RootLayout({

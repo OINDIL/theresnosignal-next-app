@@ -20,8 +20,8 @@ export function LandingPage({ navLinks }: LandingPageProps) {
     }
 
     return (
-        <section className="landing-page-bright">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <section className="landing-page-style">
+            <div className="grid grid-cols-1 md:grid-cols-3 md:gap-16">
                 <Link href={"/radio"} className="flex items-center justify-center flex-col group *:group-hover:text-white/80">
                     <Radio className="size-40 dark:text-[#B7F346]" />
                     <p className="text-3xl uppercase dark:text-[#B7F346]">Radio</p>

@@ -126,11 +126,11 @@
 
 
 @layer utilities {
-  .landing-page-bright {
+  .landing-page-style {
     @apply min-h-screen flex flex-col justify-center items-center;
   }
 
-  .dark .landing-page-bright {
+  .dark .landing-page-style {
     border-color: #b7f346;
   }
 }
