@@ -127,8 +127,7 @@
 
 @layer utilities {
   .landing-page-bright {
-    @apply min-h-screen flex flex-col justify-center items-center border-15;
-    border-color: black;
+    @apply min-h-screen flex flex-col justify-center items-center;
   }
 
   .dark .landing-page-bright {
