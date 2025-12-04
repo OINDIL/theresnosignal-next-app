@@ -19,7 +19,7 @@ export function ShowThemeSelector() {
 
     return (
         <div className="landing-page-style border-15 border-[#B7F346] bg-black text-[#B7F346]">
-            <h1 className="uppercase text-xl">Choose your vibe</h1>
+            <h1 className="uppercase text-xl">Choose your VWB</h1>
 
             <div className="flex justify-center gap-16 w-full text-xl mt-10 h-full">
                 {["dark mode", "bright mode"].map((item, i) => (

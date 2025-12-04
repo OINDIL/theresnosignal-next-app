@@ -13,7 +13,7 @@ export function EventsList({ events }: EventsListProps) {
     const month = date.toLocaleDateString("en-US", { month: "long" });
     const day = date.getDate();
     const year = date.getFullYear();
-    
+
     // Get the day suffix (1st, 2nd, 3rd, etc.)
     const getDaySuffix = (day: number) => {
       if (day > 3 && day < 21) return 'th';
@@ -51,7 +51,6 @@ export function EventsList({ events }: EventsListProps) {
   return (
     <div className="min-h-screen bg-black text-[#B7F346] relative overflow-hidden">
       {/* Pixelated vertical strip on the right */}
-      <div className="fixed right-0 top-0 w-4 h-full bg-[#B7F346] opacity-20 pixelated-strip"></div>
 
       <div className="container mx-auto px-8 py-12 max-w-7xl relative z-10">
         <h1 className="text-6xl md:text-[10vw] lg:text-9xl uppercase text-[#B7F346] mb-16">
@@ -92,7 +91,7 @@ export function EventsList({ events }: EventsListProps) {
                     <h2 className="text-2xl font-bold uppercase underline decoration-[#B7F346] decoration-2 underline-offset-4 mb-6">
                       EVENT INFO
                     </h2>
-                    
+
                     <h3 className="text-3xl md:text-4xl font-bold text-[#B7F346] mb-4">
                       {event.eventTitle}
                     </h3>
