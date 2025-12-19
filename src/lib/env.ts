@@ -3,9 +3,11 @@ import { z } from "zod";
 
 export const env = createEnv({
     server: {
-        SANITY_PROJECT_ID: z.string().min(1)
+        SANITY_PROJECT_ID: z.string().min(1),
+        ICECAST_STREAM_URL: z.string().url().min(1),
     },
     runtimeEnv: {
-        SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID
+        SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID,
+        ICECAST_STREAM_URL: process.env.ICECAST_STREAM_URL,
     }
 });
