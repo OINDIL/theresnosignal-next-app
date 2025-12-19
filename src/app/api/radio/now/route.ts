@@ -61,6 +61,8 @@ async function checkStreamActive(streamUrl: string): Promise<boolean> {
   }
 }
 
+export const revalidate = 10;
+
 export async function GET() {
   const now = new Date().toISOString();
 
@@ -110,14 +112,14 @@ export async function GET() {
         bio?: string;
         image?: SanityImage;
       } | null;
-    } | null>(currentShowQuery, { now }, { next: { revalidate: 10 } }),
+    } | null>(currentShowQuery, { now }),
     client.fetch<{
       _id: string;
       title: string;
       startTime: string;
       endTime: string;
       djName?: string;
-    } | null>(nextShowQuery, { now }, { next: { revalidate: 30 } }),
+    } | null>(nextShowQuery, { now }),
     checkStreamActive(streamUrl),
   ]);
 
