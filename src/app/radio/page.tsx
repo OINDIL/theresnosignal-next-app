@@ -63,7 +63,7 @@ export default function RadioPage() {
 
   const liveLabel = useMemo(() => {
     if (!data) return "Loading…";
-    if (data.isLive) return `LIVE NOW: ${data.show.title}`;
+    if (data.isLive) return "ON AIR";
     if (data.nextShow) return `OFF AIR • NEXT: ${data.nextShow.title}`;
     return "OFF AIR";
   }, [data]);

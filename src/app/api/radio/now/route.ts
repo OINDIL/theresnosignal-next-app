@@ -44,20 +44,48 @@ type NowPlayingResponse =
 async function checkStreamActive(streamUrl: string): Promise<boolean> {
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
+    // Try GET request - abort immediately after checking response
+    // This is more reliable than HEAD for many Icecast servers
     const response = await fetch(streamUrl, {
-      method: "HEAD",
+      method: "GET",
       signal: controller.signal,
       headers: {
         "Icy-MetaData": "1",
+        "User-Agent": "Mozilla/5.0 (compatible; RadioStatus/1.0)",
       },
     });
 
     clearTimeout(timeoutId);
-    return response.ok;
+
+    // If we get a successful response (200 or 206), stream is active
+    // Abort the body stream immediately to avoid downloading
+    if (response.body) {
+      response.body.cancel().catch(() => { });
+    }
+
+    return response.ok || response.status === 206;
   } catch {
-    return false;
+    // If GET fails, try HEAD as fallback
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+      const response = await fetch(streamUrl, {
+        method: "HEAD",
+        signal: controller.signal,
+        headers: {
+          "Icy-MetaData": "1",
+          "User-Agent": "Mozilla/5.0 (compatible; RadioStatus/1.0)",
+        },
+      });
+
+      clearTimeout(timeoutId);
+      return response.ok;
+    } catch {
+      return false;
+    }
   }
 }
 
