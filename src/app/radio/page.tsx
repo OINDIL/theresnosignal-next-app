@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import { Instagram, Music, Globe } from "lucide-react";
 
 type NowPlaying =
   | {
@@ -15,7 +16,7 @@ type NowPlaying =
       startTime: string;
       endTime: string;
       coverArtUrl?: string;
-      dj: { id: string; name: string; bio?: string; imageUrl?: string };
+      dj: { id: string; name: string; bio?: string; imageUrl?: string; instagram?: string; soundcloud?: string; website?: string };
     };
   }
   | {
@@ -157,8 +158,45 @@ export default function RadioPage() {
                     ) : (
                       <div className="h-12 w-12 rounded-full border border-black/20 dark:border-[#B7F346]/40" />
                     )}
-                    <div>
-                      <p className="font-bold">DJ: {data.show.dj.name}</p>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <p className="font-bold">DJ: {data.show.dj.name}</p>
+                        <div className="flex items-center gap-2">
+                          {data.show.dj.instagram && (
+                            <a
+                              href={data.show.dj.instagram}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-foreground hover:text-[#B7F346] transition-colors"
+                              aria-label="Instagram"
+                            >
+                              <Instagram size={18} />
+                            </a>
+                          )}
+                          {data.show.dj.soundcloud && (
+                            <a
+                              href={data.show.dj.soundcloud}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-foreground hover:text-[#B7F346] transition-colors"
+                              aria-label="SoundCloud"
+                            >
+                              <Music size={18} />
+                            </a>
+                          )}
+                          {data.show.dj.website && (
+                            <a
+                              href={data.show.dj.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-foreground hover:text-[#B7F346] transition-colors"
+                              aria-label="Website"
+                            >
+                              <Globe size={18} />
+                            </a>
+                          )}
+                        </div>
+                      </div>
                       {data.show.category && <p className="text-sm text-muted-foreground">{data.show.category}</p>}
                     </div>
                   </div>

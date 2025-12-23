@@ -25,6 +25,9 @@ type NowPlayingResponse =
         name: string;
         bio?: string;
         imageUrl?: string;
+        instagram?: string;
+        soundcloud?: string;
+        website?: string;
       };
     };
   }
@@ -109,7 +112,7 @@ export async function GET() {
     startTime,
     endTime,
     coverArt{_type,asset{_ref,_type}},
-    dj->{_id,name,bio,image{_type,asset{_ref,_type}}}
+    dj->{_id,name,bio,image{_type,asset{_ref,_type}},instagram,soundcloud,website}
   }`;
 
   const nextShowQuery = `*[
@@ -139,6 +142,9 @@ export async function GET() {
         name: string;
         bio?: string;
         image?: SanityImage;
+        instagram?: string;
+        soundcloud?: string;
+        website?: string;
       } | null;
     } | null>(currentShowQuery, { now }),
     client.fetch<{
@@ -176,6 +182,9 @@ export async function GET() {
           name: currentShow.dj.name,
           bio: currentShow.dj.bio,
           imageUrl: djImageUrl,
+          instagram: currentShow.dj.instagram,
+          soundcloud: currentShow.dj.soundcloud,
+          website: currentShow.dj.website,
         },
       },
     };
