@@ -167,7 +167,7 @@ export default function RadioPage() {
                               href={data.show.dj.instagram}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-[#B7F346] transition-colors"
+                              className="text-foreground transition-colors"
                               aria-label="Instagram"
                             >
                               <Instagram size={18} />
@@ -178,7 +178,7 @@ export default function RadioPage() {
                               href={data.show.dj.soundcloud}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-[#B7F346] transition-colors"
+                              className="text-foreground transition-colors"
                               aria-label="SoundCloud"
                             >
                               <Music size={18} />
@@ -189,7 +189,7 @@ export default function RadioPage() {
                               href={data.show.dj.website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-foreground hover:text-[#B7F346] transition-colors"
+                              className="text-foreground transition-colors"
                               aria-label="Website"
                             >
                               <Globe size={18} />
